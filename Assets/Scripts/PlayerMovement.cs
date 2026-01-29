@@ -14,4 +14,9 @@ public class PlayerMovement : MonoBehaviour
     {
         
     }
+
+    void LateUpdate()
+    {
+     // this is a update that happends every couple of frames rather than everyframe   
+    }
 }

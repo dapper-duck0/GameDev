@@ -9,14 +9,9 @@ public class PlayerMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    //fine
-    }
-
+    // this is a update that happends every couple of frames rather than everyframe
     void LateUpdate()
     {
-     // this is a update that happends every couple of frames rather than everyframe   
+        
     }
 }

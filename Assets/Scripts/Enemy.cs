@@ -2,11 +2,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private Player Player;
+    public float PlayerDet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //Player = manager.GetComponent<PlayerScore>();    
+        //          
+        //the line below is having issues
+        //PlayerDet = Player.DetectSpeed;  
     }
 
     // Update is called once per frame

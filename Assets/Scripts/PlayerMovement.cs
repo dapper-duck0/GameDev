@@ -2,8 +2,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    double Speed = 20;
-    double Jump = 10;
+    //TODO: FIX
+    //float Speed = 20;
+    //float Jump = 10;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -13,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     // this is a update that happends every couple of frames rather than everyframe
     void Update()
     {
-        if (Input.GetButtonDown("w"))
+        if (Input.GetAxis("vertical"))
         {
             Debug.Log("forward");
         }

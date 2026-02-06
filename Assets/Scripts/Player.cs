@@ -25,10 +25,16 @@ public class Player : MonoBehaviour
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
 
+        // Checks if shift keys are down, if so turns stealth to true, if not stealth is set to false.
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             stealth = true;
         }
+        else
+        {
+            stealth = false;
+        }
+
     }
 }
 

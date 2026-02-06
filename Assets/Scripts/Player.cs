@@ -5,6 +5,7 @@ public class Player : MonoBehaviour
     public float Speed = 10.0f;
     public float RotationSpeed = 100.0f;
     public float DetectSpeed = 10.0f;
+    public bool stealth = false;
 
     void Update()
     {
@@ -23,6 +24,11 @@ public class Player : MonoBehaviour
 
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
+
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            stealth = true;
+        }
     }
 }
 

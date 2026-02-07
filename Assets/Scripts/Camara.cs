@@ -5,20 +5,22 @@ public class Camara : MonoBehaviour
     //move to player
     public Transform target;
     public float smoothSpeed = 0.125f;
-    public Vector3 offset;
+    public float offset = 2.5f;
 
     //for the steath mode
     public Player stealth;
   
     void Update ()
     {
-        Vector3 desiredPosition = target.position + offset;
-        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
-        transform.position = smoothedPosition;
+        Vector3 desiredPosition = target.position;
+        
 
         if (stealth == true)
         {
             //will move the camara down but for now nothing
+            desiredPosition.y -= offset;
         }
+        transform.position = smoothedPosition;
+        Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
     }
 }

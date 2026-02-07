@@ -2,13 +2,14 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Player PlayerScript;
+    private Player PlayerScript;
     public float PlayerDet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        //          
-        //the line below is having issues
+        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        PlayerScript = playerObj.GetComponent<Player>();
+        //testing to see if PlayerDet is getting grabed 
         PlayerDet = PlayerScript.DetectSpeed;  
         Debug.Log(PlayerDet);
     }

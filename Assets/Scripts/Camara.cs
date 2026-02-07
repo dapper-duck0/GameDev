@@ -6,9 +6,15 @@ public class Camara : MonoBehaviour
     public Transform PlayerPos;
     public float smoothSpeed = 0.125f;
     public float offset = 2.5f;
+    public GameObject player;
 
     //for the steath mode
     public Player stealth;
+    void Start ()
+    {
+        player = GameObject.FindWithTag("Player"); 
+        PlayerPos = player.transform;
+    }
   
     void Update ()
     {

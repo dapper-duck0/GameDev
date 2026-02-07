@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        var ray1 = new Ray( transform.position, transform.forward );
+        var ray1 = new Ray( transform.position, transform.forward ); //casts a ray for player detection
                     
         var hit : RaycastHit; 
                         
@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
             if( (hit.collider.name == "FPS") || (hit.collider.name == "Player") ) 
             { 	
                 SceneManger.LoadScene("GameOverScene");
+                //currently no scene named GameOverScene, but will test.
             } 
         } 
     }

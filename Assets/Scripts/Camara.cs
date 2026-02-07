@@ -3,7 +3,7 @@ using UnityEngine;
 public class Camara : MonoBehaviour
 {
     //move to player
-    public Transform target;
+    public Transform PlayerPos;
     public float smoothSpeed = 0.125f;
     public float offset = 2.5f;
 
@@ -12,7 +12,7 @@ public class Camara : MonoBehaviour
   
     void Update ()
     {
-        Vector3 desiredPosition = target.position;
+        Vector3 desiredPosition = PlayerPos.position;
         
 
         if (stealth == true)

@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
         {
             stealth = true;
-            Speed = Speed / 1.5;
+            Speed = Speed / 1.5f;
         }
         else
         {

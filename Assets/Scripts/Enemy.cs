@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public Player PlayerModel;
+    public Player PlayerScript;
     public float PlayerDet;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

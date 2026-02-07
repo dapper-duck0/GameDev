@@ -20,7 +20,8 @@ public class Camara : MonoBehaviour
             //will move the camara down but for now nothing
             desiredPosition.y -= offset;
         }
-        transform.position = smoothedPosition;
+        
         Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
+        transform.position = smoothedPosition;
     }
 }

@@ -12,6 +12,7 @@ public class Camara : MonoBehaviour
     public Player stealth;
     void Start ()
     {
+        //hopfully will find the player and make PlayerPos to where the player is
         player = GameObject.FindWithTag("Player"); 
         PlayerPos = player.transform;
     }

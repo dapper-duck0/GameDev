@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneMangement;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,8 +16,18 @@ public class Enemy : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
-        
+        var ray1 = new Ray( transform.position, transform.forward );
+                    
+        var hit : RaycastHit; 
+                        
+        if( Physics.Raycast( ray1, hit, int_HitRadiusDistance ))
+        { 
+            if( (hit.collider.name == "FPS") || (hit.collider.name == "Player") ) 
+            { 	
+                SceneManger.LoadScene("GameOverScene");
+            } 
+        } 
     }
 }

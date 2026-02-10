@@ -13,7 +13,7 @@ public class Camara : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
-        
+            
         }
     }
 }

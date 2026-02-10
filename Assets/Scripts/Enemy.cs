@@ -28,7 +28,7 @@ public class Enemy : MonoBehaviour
         { 
             if( (hit.collider.name == "FPS") || (hit.collider.name == "Player") ) 
             { 	
-                SceneManager.LoadScene("GameOverScene");
+                Debug.Log("hit enemy");
                 //currently no scene named GameOverScene, but will test.
             } 
         } 

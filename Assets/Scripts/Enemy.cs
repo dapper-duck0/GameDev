@@ -26,6 +26,7 @@ public class Enemy : MonoBehaviour
                         
         if( Physics.Raycast(ray1, out hit, hitRadiusDistance ))
         { 
+            //what is FPS?
             if( (hit.collider.name == "FPS") || (hit.collider.name == "Player") ) 
             { 	
                 Debug.Log("hit enemy");

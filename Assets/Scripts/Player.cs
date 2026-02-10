@@ -9,10 +9,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        // Get the horizontal and vertical axis.
-        // By default they are mapped to the arrow keys.
-        // The value is in the range -1 to 1
-        //its better to fix it here
+        // movement based on the axis of input instead of keys
         float translation = -Input.GetAxis("Vertical") * Speed;
         float rotation = Input.GetAxis("Horizontal") * RotationSpeed;
 

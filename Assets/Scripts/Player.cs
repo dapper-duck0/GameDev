@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float Speed = 10.0f;
+    public float Speed = -10.0f;
     public float RotationSpeed = 100.0f;
     public float DetectSpeed = 10.0f;
     public bool stealth = false;

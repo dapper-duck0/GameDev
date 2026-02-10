@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
         PlayerScript = playerObj.GetComponent<Player>();
         //testing to see if PlayerDet is getting grabed 
         PlayerDet = PlayerScript.DetectSpeed;  
-        Debug.Log(PlayerDet);
+        Debug.Log("10");
     }
     public float hitRadiusDistance = 10f;
 

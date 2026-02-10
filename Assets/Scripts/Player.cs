@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public float Speed = -10.0f;
+    public float Speed = 10.0f;
     public float RotationSpeed = 100.0f;
     public float DetectSpeed = 10.0f;
     public bool stealth = false;
@@ -12,7 +12,8 @@ public class Player : MonoBehaviour
         // Get the horizontal and vertical axis.
         // By default they are mapped to the arrow keys.
         // The value is in the range -1 to 1
-        float translation = Input.GetAxis("Vertical") * Speed;
+        //its better to fix it here
+        float translation = -Input.GetAxis("Vertical") * Speed;
         float rotation = Input.GetAxis("Horizontal") * RotationSpeed;
 
         // Make it move 10 meters per second instead of 10 meters per frame...

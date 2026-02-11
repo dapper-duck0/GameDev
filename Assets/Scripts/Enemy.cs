@@ -27,9 +27,9 @@ public class Enemy : MonoBehaviour
         if( Physics.Raycast(ray1, out hit, hitRadiusDistance ))
         { 
             //what is FPS?
-            if( (hit.collider.name == "FPS") || (hit.collider.name == "Player") ) 
+            if((hit.collider.name == "Player") ) //(hit.collider.name == "FPS") || //(just in case)
             { 	
-                Debug.Log("hit enemy");
+                Debug.Log("hit player");
                 //currently no scene named GameOverScene, but will test.
             } 
         } 

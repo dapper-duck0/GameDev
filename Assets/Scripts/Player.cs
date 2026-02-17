@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.PhysicsModule;
+using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     //DECLARE ALL VERIABLES/SCRIPTS HERE!
@@ -11,6 +12,14 @@ public class Player : MonoBehaviour
     RaycastHit EnemyTag;
     public bool stealth = false;
 
+
+    void Update()
+    {
+        if (heath = 0)
+        {
+            loadscene("GameOver")
+        }
+    }
     void LateUpdate()
     {
         // movement based on the axis of input instead of keys

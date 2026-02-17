@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     {
         if (heath = 0)
         {
-            loadscene("GameOver")
+            loadscene("GameOver");
         }
     }
     void LateUpdate()

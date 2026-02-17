@@ -5,6 +5,7 @@ public class ViewingCamera : MonoBehaviour
     private float offset= 0.1f;
     private float normal = 0.8f;
     public bool IsCrouched = false;
+    private Player PlayerScript;
     // variables
 
 

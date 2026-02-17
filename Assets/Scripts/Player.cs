@@ -15,13 +15,6 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (heath = 0)
-        {
-            loadscene("GameOver");
-        }
-    }
-    void LateUpdate()
-    {
         // movement based on the axis of input instead of keys
         float translation = -Input.GetAxis("Vertical") * Speed;
         float rotation = Input.GetAxis("Horizontal") * RotationSpeed;
@@ -35,6 +28,15 @@ public class Player : MonoBehaviour
 
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
+        if (heath = 0)
+        {
+            //loadscene("GameOver");
+            Debug.Log("you died");
+        }
+    }
+    void LateUpdate()
+    {
+
 
         // Checks if shift keys are down, if so turns stealth to true, if not stealth is set to false.
         if (Input.GetKeyDown(KeyCode.LeftControl))

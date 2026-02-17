@@ -38,11 +38,11 @@ public class Player : MonoBehaviour
         }
         //raycast shinanigans
         if (Input.GetKeyDown("Q")) {
-            MarkEnemy = new Ray(transform.position, tranform.forward);         
+            MarkEnemy = new Ray(transform.position, transform.forward);         
             if( Physics.Raycast(MarkEnemy, maxDistance))
             { 
             //what is FPS?
-                if((hit.collider.name == "Player") ) //(hit.collider.name == "FPS") || //(just in case)
+                if((MarkEnemy.collider.name == "Player") ) //(hit.collider.name == "FPS") || //(just in case)
                 { 	
                     Debug.Log("hit player");
                     //currently no scene named GameOverScene, but will test.

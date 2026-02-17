@@ -4,6 +4,7 @@ public class ViewingCamera : MonoBehaviour
 {
     private float offset= 0.1f;
     private float normal = 0.8f;
+    private float ScreenQuack = 0.3f;
     public bool IsCrouched = false;
     private Player PlayerScript;
     private Enemy EnemyScript;
@@ -21,6 +22,13 @@ public class ViewingCamera : MonoBehaviour
         {
             transform.Translate(0, offset, 0);
         }
-        if (EnemyScript.DamidgePlayer)
+        if (EnemyScript.DamidgingHappen = true){
+            ShakeScreen();
+        }
+    }
+    void ShakeScreen()
+    {
+        transform.Translate(0, -(normal-ScreenQuack), 0);
+        transform.Translate(0, (normal+ScreenQuack), 0);
     }
 }

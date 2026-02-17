@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         PlayerDet = PlayerScript.DetectSpeed;  
         if (true) {//detects collistion
             PlayerScript.heath = heath - DamidgePlayer;
-            Debug(PlayerScript.heath)
+            Debug(PlayerScript.heath);
             DamidgingHappen = true;
         }
         else{

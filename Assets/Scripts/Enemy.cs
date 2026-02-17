@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     void LateUpdate()
     {
         PlayerDet = PlayerScript.DetectSpeed;  
-        if (EnemySight) {//detects collistion
+        if (EnemySight) {//detects collistion [to do]
             PlayerScript.heath = heath - DamidgePlayer;
             Debug(PlayerScript.heath);
             DamidgingHappen = true;

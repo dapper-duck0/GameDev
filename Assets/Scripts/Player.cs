@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public float DetectSpeed = 10.0f;
     public bool stealth = false;
 
-    void Update()
+    void LateUpdate()
     {
         // movement based on the axis of input instead of keys
         float translation = -Input.GetAxis("Vertical") * Speed;
@@ -35,7 +35,19 @@ public class Player : MonoBehaviour
             stealth = false;
             Speed = 10.0f;
         }
+        if (Input.GetKeyDown("Q")) {
+            IsHit = new Ray(transform.position, tranform.forward);         
+            if( Physics.Raycast(IsHit, maxDistance))
+            { 
+            //what is FPS?
+                if((hit.collider.name == "Player") ) //(hit.collider.name == "FPS") || //(just in case)
+                { 	
+                    Debug.Log("hit player");
+                    //currently no scene named GameOverScene, but will test.
+                } 
+            } 
 
+        }
     }
 }
 

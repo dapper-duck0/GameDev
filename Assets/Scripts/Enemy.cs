@@ -20,18 +20,6 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        var ray1 = new Ray( transform.position, transform.forward ); //casts a ray for player detection
-                    
-        RaycastHit hit;
-                        
-        if( Physics.Raycast(ray1, out hit, hitRadiusDistance ))
-        { 
-            //what is FPS?
-            if((hit.collider.name == "Player") ) //(hit.collider.name == "FPS") || //(just in case)
-            { 	
-                Debug.Log("hit player");
-                //currently no scene named GameOverScene, but will test.
-            } 
-        } 
+        
     }
 }

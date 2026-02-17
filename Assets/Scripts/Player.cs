@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using UnityEngine.PhysicsModule;
 public class Player : MonoBehaviour
 {
     //DECLARE ALL VERIABLES/SCRIPTS HERE!
@@ -7,6 +7,8 @@ public class Player : MonoBehaviour
     public float RotationSpeed = 100.0f;
     public float DetectSpeed = 10.0f;
     public int heath = 100;
+    Ray MarkEnemy;
+    RaycastHit EnemyTag;
     public bool stealth = false;
 
     void LateUpdate()
@@ -39,13 +41,12 @@ public class Player : MonoBehaviour
         //raycast shinanigans
         if (Input.GetKeyDown("Q")) {
             MarkEnemy = new Ray(transform.position, transform.forward);         
-            if( Physics.Raycast(MarkEnemy, maxDistance))
+            if(Physics.Raycast(MarkEnemy ))
             { 
             //what is FPS?
-                if((MarkEnemy.collider.name == "Player") ) //(hit.collider.name == "FPS") || //(just in case)
+                if(MarkEnemy)
                 { 	
-                    Debug.Log("hit player");
-                    //currently no scene named GameOverScene, but will test.
+                    
                 } 
             } 
 

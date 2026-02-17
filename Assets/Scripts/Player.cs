@@ -6,6 +6,7 @@ public class Player : MonoBehaviour
     public float Speed = 10.0f;
     public float RotationSpeed = 100.0f;
     public float DetectSpeed = 10.0f;
+    public int heath = 100;
     public bool stealth = false;
 
     void LateUpdate()
@@ -35,9 +36,10 @@ public class Player : MonoBehaviour
             stealth = false;
             Speed = 10.0f;
         }
+        //raycast shinanigans
         if (Input.GetKeyDown("Q")) {
-            IsHit = new Ray(transform.position, tranform.forward);         
-            if( Physics.Raycast(IsHit, maxDistance))
+            MarkEnemy = new Ray(transform.position, tranform.forward);         
+            if( Physics.Raycast(MarkEnemy, maxDistance))
             { 
             //what is FPS?
                 if((hit.collider.name == "Player") ) //(hit.collider.name == "FPS") || //(just in case)

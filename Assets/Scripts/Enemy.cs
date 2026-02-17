@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     public float PlayerDet;
     public int DamidgePlayer = 5;
     public bool DamidgingHappen = false;
+    public bool EnemySight = true;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour
     void LateUpdate()
     {
         PlayerDet = PlayerScript.DetectSpeed;  
-        if (true) {//detects collistion
+        if (EnemySight) {//detects collistion
             PlayerScript.heath = heath - DamidgePlayer;
             Debug(PlayerScript.heath);
             DamidgingHappen = true;

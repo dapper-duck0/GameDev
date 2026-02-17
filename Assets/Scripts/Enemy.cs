@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
     private Player PlayerScript;
     public float PlayerDet;
     public int DamidgePlayer = 5;
+    public bool DamidgingHappen = false;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,7 +22,13 @@ public class Enemy : MonoBehaviour
     void LateUpdate()
     {
         PlayerDet = PlayerScript.DetectSpeed;  
-        PlayerScript.heath = heath - DamidgePlayer;
-        Debug(PlayerScript.heath)
+        if (true) {//detects collistion
+            PlayerScript.heath = heath - DamidgePlayer;
+            Debug(PlayerScript.heath)
+            DamidgingHappen = true;
+        }
+        else{
+            DamidgingHappen = false;
+        }
     }
 }

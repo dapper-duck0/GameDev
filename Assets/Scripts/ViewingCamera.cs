@@ -6,6 +6,7 @@ public class ViewingCamera : MonoBehaviour
     private float normal = 0.8f;
     public bool IsCrouched = false;
     private Player PlayerScript;
+    private Enemy EnemyScript;
     // variables
 
 
@@ -20,5 +21,6 @@ public class ViewingCamera : MonoBehaviour
         {
             transform.Translate(0, offset, 0);
         }
+        if (EnemyScript.DamidgePlayer)
     }
 }

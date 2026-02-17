@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class ViewingCamera : MonoBehaviour
 {
-    public float offset= 0.1f;
-    public float normal = 0.8f;
+    private float offset= 0.1f;
+    private float normal = 0.8f;
     public bool IsCrouched = false;
 
     void Start ()

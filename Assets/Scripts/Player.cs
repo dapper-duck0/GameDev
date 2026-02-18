@@ -1,8 +1,8 @@
 using UnityEngine;
-using UnityEngine.PhysicsModule;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
+//using UnityEngine.PhysicsModule;
 public class Player : MonoBehaviour
 {
     //DECLARE ALL VERIABLES/SCRIPTS HERE!
@@ -55,7 +55,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown("Q")) {
             MarkEnemy = new Ray(transform.position, transform.forward);         
             if(Physics.Raycast(MarkEnemy, out EnemyTag))
-            { 
+            {
+                Debug.log(EnemyTag.collider + "was hit"); 
                 if(MarkEnemy)
                 { 	
                     

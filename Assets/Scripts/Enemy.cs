@@ -7,7 +7,6 @@ public class Enemy : MonoBehaviour
     public float PlayerDet;
     public int DamidgePlayer = 5;
     public bool DamidgingHappen = false;
-    public bool EnemySight = true;
     
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,18 +17,19 @@ public class Enemy : MonoBehaviour
         //testing to see if PlayerDet is getting grabed 
     }
     public float hitRadiusDistance = 10f;
-
+    private void OnTriggerEnter(Collider other) // needs to add a collider box around enemy that is trigger.
+    {
+        if (other.CompareTag("Player"))
+        {
+            Debug.Log("player entered the enemy sights");
+            transform.LookAt(other.transform);
+            
+        }
+    }
     // Update is called once per frame
     void LateUpdate()
     {
+
         PlayerDet = PlayerScript.DetectSpeed;  
-        if (EnemySight) {//detects collistion [to do]
-            PlayerScript.heath = heath - DamidgePlayer;
-            Debug(PlayerScript.heath);
-            DamidgingHappen = true;
-        }
-        else{
-            DamidgingHappen = false;
-        }
     }
 }

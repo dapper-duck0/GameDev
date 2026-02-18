@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.PhysicsModule;
 using UnityEngine.SceneManagement;
+using System.Collections;
+using System.Collections.Generic;
 public class Player : MonoBehaviour
 {
     //DECLARE ALL VERIABLES/SCRIPTS HERE!
@@ -52,9 +54,8 @@ public class Player : MonoBehaviour
         //raycast shinanigans
         if (Input.GetKeyDown("Q")) {
             MarkEnemy = new Ray(transform.position, transform.forward);         
-            if(Physics.Raycast(MarkEnemy ))
+            if(Physics.Raycast(MarkEnemy, out EnemyTag))
             { 
-            //what is FPS?
                 if(MarkEnemy)
                 { 	
                     

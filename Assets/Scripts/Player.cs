@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
 
         // Rotate around our y-axis
         transform.Rotate(0, rotation, 0);
-        if (heath = 0)
+        if (heath == 0)
         {
             //loadscene("GameOver");
             Debug.Log("you died");
@@ -56,11 +56,11 @@ public class Player : MonoBehaviour
             MarkEnemy = new Ray(transform.position, transform.forward);         
             if(Physics.Raycast(MarkEnemy, out EnemyTag))
             {
-                Debug.log(EnemyTag.collider + "was hit"); 
-                if(MarkEnemy)
-                { 	
+                Debug.Log(EnemyTag.collider + "was hit"); 
+                //if(MarkEnemy)
+                //{ 	
                     
-                } 
+                //} 
             } 
 
         }

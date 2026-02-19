@@ -22,7 +22,7 @@ public class ViewingCamera : MonoBehaviour
         {
             transform.Translate(0, offset, 0);
         }
-        if (EnemyScript.DamidgingHappen = true){
+        if (EnemyScript.DamidgingHappen == true){
             ShakeScreen();
         }
     }

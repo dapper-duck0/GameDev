@@ -378,9 +378,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1358795c09e4f7a7e83c928c3905f731, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: 0.1
-  normal: 0.8
   IsCrouched: 0
+  PlayerScript: {fileID: 1646033157}
+  EnemyScript: {fileID: 890686151}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -584,6 +584,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerDet: 0
+  DamidgePlayer: 5
+  DamidgingHappen: 0
   hitRadiusDistance: 10
 --- !u!136 &890686152
 CapsuleCollider:
@@ -913,6 +915,7 @@ MonoBehaviour:
   Speed: 10
   RotationSpeed: 100
   DetectSpeed: 10
+  heath: 100
   stealth: 0
 --- !u!1 &2146423102
 GameObject:

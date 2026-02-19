@@ -24,13 +24,13 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("player entered the enemy sights");
             transform.LookAt(other.transform);
-            if (Camera.IsCrouched == True)
+            if (Camera.IsCrouched == true)
             {
-                Debug("Time to find longer");
+                Debug.Log("Time to find longer");
             }
             else
             {
-                Debug("time to find base speed");
+                Debug.Log("time to find base speed");
             }
             
         }

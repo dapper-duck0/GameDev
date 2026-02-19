@@ -6,8 +6,8 @@ public class ViewingCamera : MonoBehaviour
     private float normal = 0.8f;
     private float ScreenQuack = 0.3f;
     public bool IsCrouched = false;
-    private Player PlayerScript;
-    private Enemy EnemyScript;
+    public Player PlayerScript;
+    public Enemy EnemyScript;
     // variables
 
 

@@ -28,7 +28,9 @@ public class ViewingCamera : MonoBehaviour
     }
     void ShakeScreen()
     {
-        transform.Translate(-(0-ScreenQuack), -(normal-ScreenQuack), -(0-ScreenQuack));
-        transform.Translate((0+ScreenQuack), (normal+ScreenQuack), (0+ScreenQuack));
+        for (int i = 0; i < 3; i++){
+            transform.Translate(-(0-ScreenQuack), -(normal-ScreenQuack), -(0-ScreenQuack));
+            transform.Translate((0+ScreenQuack), (normal+ScreenQuack), (0+ScreenQuack));
+        }
     }
 }

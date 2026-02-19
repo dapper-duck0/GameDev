@@ -12,10 +12,10 @@ public class Enemy : MonoBehaviour
     public Timer(int timeWanted)
     {
         timeRemaning = timeWanted;
-        while( timeRemaning > 0)
+        while (timeRemaning > 0)
         {
-            timeRemaning -=1;
-            
+            timeRemaning -= 1;
+
         }
         // this is where you retur the stuff 
     }
@@ -42,14 +42,14 @@ public class Enemy : MonoBehaviour
             {
                 Debug.Log("time to find base speed");
             }
-            
+
         }
     }
     // Update is called once per frame
     void LateUpdate()
     {
 
-        PlayerDet = PlayerScript.DetectSpeed;  
+        PlayerDet = PlayerScript.DetectSpeed;
     }
-    
+
 }

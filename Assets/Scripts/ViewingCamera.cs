@@ -28,7 +28,8 @@ public class ViewingCamera : MonoBehaviour
     }
     void ShakeScreen()
     {
-        for (int i = 0; i < 3; i++){
+        for (int i = 0; i < 3; i++)
+        {
             transform.Translate(-(0-ScreenQuack), -(normal-ScreenQuack), -(0-ScreenQuack));
             transform.Translate((0+ScreenQuack), (normal+ScreenQuack), (0+ScreenQuack));
         }

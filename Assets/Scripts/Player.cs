@@ -52,11 +52,11 @@ public class Player : MonoBehaviour
             Speed = 10.0f;
         }
         //raycast shinanigans
-        if (Input.GetKeyDown("Q")) {
+        if (Input.GetKeyDown(KeyCode.Q)) {
             MarkEnemy = new Ray(transform.position, transform.forward);         
-            if(Physics.Raycast(MarkEnemy, out EnemyTag))
+            if(Physics.Raycast(MarkEnemy))
             {
-                Debug.Log(EnemyTag.collider + "was hit"); 
+                Debug.Log("something was hit"); 
                 //if(MarkEnemy)
                 //{ 	
                     

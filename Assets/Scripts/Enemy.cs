@@ -8,7 +8,17 @@ public class Enemy : MonoBehaviour
     public float PlayerDet;
     public int DamidgePlayer = 5;
     public bool DamidgingHappen = false;
-    
+    public int timeRemaning = 0;
+    public Timer(int timeWanted)
+    {
+        timeRemaning = timeWanted;
+        while( timeRemaning > 0)
+        {
+            timeRemaning -=1;
+            
+        }
+        // this is where you retur the stuff 
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -41,4 +51,5 @@ public class Enemy : MonoBehaviour
 
         PlayerDet = PlayerScript.DetectSpeed;  
     }
+    
 }

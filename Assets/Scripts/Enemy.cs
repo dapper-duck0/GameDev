@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
+    private ViewingCamera Camera;
     public float PlayerDet;
     public int DamidgePlayer = 5;
     public bool DamidgingHappen = false;
@@ -23,6 +24,14 @@ public class Enemy : MonoBehaviour
         {
             Debug.Log("player entered the enemy sights");
             transform.LookAt(other.transform);
+            if (Camera.IsCrouched == True)
+            {
+                Debug("Time to find longer");
+            }
+            else
+            {
+                Debug("time to find base speed");
+            }
             
         }
     }

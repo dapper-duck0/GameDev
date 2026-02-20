@@ -11,6 +11,7 @@ public class Enemy : MonoBehaviour
     public bool DamidgingHappen = false;
     public int timeRemaining;
     public bool Agro = false;
+    public float hitRadiusDistance = 10f;
 
 
     //the timer
@@ -33,7 +34,7 @@ public class Enemy : MonoBehaviour
         PlayerScript = playerObj.GetComponent<Player>();
         //testing to see if PlayerDet is getting grabed 
     }
-    public float hitRadiusDistance = 10f;
+    
     private void OnTriggerEnter(Collider other) // needs to add a collider box around enemy that is trigger.
     {
         if (other.CompareTag("Player"))

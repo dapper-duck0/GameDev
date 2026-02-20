@@ -9,6 +9,8 @@ public class Enemy : MonoBehaviour
     public int DamidgePlayer = 5;
     public bool DamidgingHappen = false;
     public int timeRemaning = 0;
+    
+    
     public Timer(int timeWanted)
     {
         timeRemaning = timeWanted;

@@ -13,7 +13,7 @@ public class Enemy : MonoBehaviour
     public bool Agro = false;
 
 
-
+    //the timer
     IEnumerator Countdown()
     {
         while (timeRemaining > 0)
@@ -24,10 +24,9 @@ public class Enemy : MonoBehaviour
         }
 
         Debug.Log("Time's up!");
-        agro = true;
+        Agro = true;
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
@@ -54,13 +53,15 @@ public class Enemy : MonoBehaviour
 
         }
     }
-    // Update is called once per frame
+
+
     void LateUpdate()
     {
 
         PlayerDet = PlayerScript.DetectSpeed;
     }
 
+    //to start a timer
     public void StartTimer(int timeWanted)
     {
         timeRemaining = timeWanted;

@@ -6,12 +6,16 @@ public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
     private ViewingCamera Camera;
+
     public float PlayerDet;
-    public int DamidgePlayer = 5;
-    public bool DamidgingHappen = false;
-    public int timeRemaining;
-    public bool Agro = false;
     public float hitRadiusDistance = 10f;
+
+    public int DamidgePlayer = 5;
+    public int timeRemaining;
+
+    public bool DamidgingHappen = false;
+    public bool Agro = false;
+    public bool StopTimer = false;
 
 
     //the timer
@@ -22,6 +26,10 @@ public class Enemy : MonoBehaviour
             yield return new WaitForSeconds(1f);
             timeRemaining--;
             Debug.Log(timeRemaining);
+            if (StopTimer == true)
+            {
+                break;
+            }
         }
 
         Debug.Log("Time's up!");

@@ -26,7 +26,7 @@ public class ViewingCamera : MonoBehaviour
             ShakeScreen(3);
         }
     }
-    void ShakeScreen(ShakeIntensity)
+    void ShakeScreen(int ShakeIntensity)
     {
         for (int i = 0; i < ShakeIntensity; i++)
         {

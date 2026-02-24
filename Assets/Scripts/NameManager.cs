@@ -50,15 +50,15 @@ public class NameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
-            if (key != "Backspace")
+            if (key != KeyCode.Backspace)
             {
                 NameKeys.Add(key);
-                Debug.log(NameKeys);
+                Debug.Log(NameKeys);
             }
             else
             {
                 NameKeys.RemoveAt(rows.Count - 1);
-                Debug.log(NameKeys);
+                Debug.Log(NameKeys);
             }
             
         }

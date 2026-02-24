@@ -4,6 +4,7 @@ using System.Collections.Generic;
 public class NameManager : MonoBehaviour
 {
     //We can just use a UI text box for this
+    //true i guess but how will it work for keeping it in a variable? is that something we can do or nah?
     // A list
     private List<KeyCode> NameKeys = new List<KeyCode>();
 

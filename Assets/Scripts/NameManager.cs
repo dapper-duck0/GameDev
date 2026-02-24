@@ -3,6 +3,7 @@ using System.Collections.Generic;
 
 public class NameManager : MonoBehaviour
 {
+    //We can just use a UI text box for this
     // A list
     private List<KeyCode> NameKeys = new List<KeyCode>();
 
@@ -49,7 +50,7 @@ public class NameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
-            if (key != 'Backspace')
+            if (key != "Backspace")
             {
                 NameKeys.Add(key);
                 Debug.log(NameKeys);

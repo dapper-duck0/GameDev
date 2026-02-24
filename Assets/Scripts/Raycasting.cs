@@ -9,7 +9,7 @@ publci class Raycasting : MonoBehaviour
     Ray MarkEnemy;
     RaycastHit EnemyTag;
 
-    void LateUpdate
+    void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Q)) 
         {

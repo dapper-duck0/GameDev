@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) // needs to add a collider box around enemy that is trigger.
-    {
+    {  // detects if the player is inside a collistion box and if so starts a timer to start agro mode.
         if (other.CompareTag("Player"))
         {
             Debug.Log("player entered the enemy sights");
@@ -78,5 +78,10 @@ public class Enemy : MonoBehaviour
     void LateUpdate()
     {
         PlayerDet = PlayerScript.DetectSpeed;
+        if (Agro == true)
+        {
+            DamidgingHappen = true;
+            Debug.Log("player is dying")
+        }
     }
 }

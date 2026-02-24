@@ -10,8 +10,6 @@ public class Player : MonoBehaviour
     public float RotationSpeed = 100.0f;
     public float DetectSpeed = 10.0f;
     public int heath = 100;
-    Ray MarkEnemy;
-    RaycastHit EnemyTag;
     public bool stealth = false;
 
 
@@ -38,8 +36,6 @@ public class Player : MonoBehaviour
     }
     void LateUpdate()
     {
-
-
         // Checks if shift keys are down, if so turns stealth to true, if not stealth is set to false.
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
@@ -50,19 +46,6 @@ public class Player : MonoBehaviour
         {
             stealth = false;
             Speed = 10.0f;
-        }
-        //raycast shinanigans
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            MarkEnemy = new ViewingCamera.Main.screenPointToRcay(transform.position, transform.forward);         
-            if(Physics.Raycast(MarkEnemy, out EnemyTag))
-            {
-                Debug.Log(EnemyTag.collider.GameObject.name + " was hit"); 
-                //if(MarkEnemy)
-                //{ 	
-                    
-                //} 
-            } 
-
         }
     }
 }

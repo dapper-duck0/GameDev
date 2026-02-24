@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     public int DamidgePlayer = 5;
     public int timeRemaining;
+    public int TimerAddTime;
 
     public bool DamidgingHappen = false;
     public bool Agro = false;
@@ -29,6 +30,9 @@ public class Enemy : MonoBehaviour
             if (StopTimer == true)
             {
                 break;
+            }
+            if (TimerAddTime > 0){
+                timeRemaining += TimerAddTime;
             }
         }
 

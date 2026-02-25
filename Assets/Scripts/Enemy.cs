@@ -18,7 +18,6 @@ public class Enemy : MonoBehaviour
     public bool Agro = false;
     public bool StopTimer = false;
 
-
     //the timer
     IEnumerator Countdown(int timeRemaining)
     {
@@ -72,6 +71,7 @@ public class Enemy : MonoBehaviour
 
         }
     }
+    
     private void OnTriggerExit(Collider others)
     {
         if (others.CompareTag("Player"))

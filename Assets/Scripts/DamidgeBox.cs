@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class DamidgeBox : MonoBehaviour
 {
+    //this script litterly exits just to check if the player is inside a damidge zone 
+    //for the enemy script
     public bool IsInside = false;
     private void OnTriggerEnter(Collider other)
     {

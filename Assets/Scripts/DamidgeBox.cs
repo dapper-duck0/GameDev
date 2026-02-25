@@ -14,7 +14,7 @@ public class DamidgeBox : MonoBehaviour
     }
     private void OnTriggerExit(Collider others)
     {
-        if (other.CompareTag("Player"))
+        if (others.CompareTag("Player"))
         {
             IsInside = false;
         }

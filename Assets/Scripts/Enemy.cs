@@ -6,33 +6,37 @@ public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
     private ViewingCamera Camera;
+
     public float PlayerDet;
     public float hitRadiusDistance = 10f;
+
     public int DamidgePlayer = 5;
-    public int timeRemaining;
     public int TimerAddTime;
+    public int maxTime;
+
     public bool DamidgingHappen = false;
     public bool Agro = false;
     public bool StopTimer = false;
 
 
     //the timer
-    IEnumerator Countdown()
+    IEnumerator Countdown(int timeRemaining)
     {
+        maxTime = timeRemaining;
         while (timeRemaining > 0)
         {
             yield return new WaitForSeconds(1f);
             timeRemaining--;
             Debug.Log(timeRemaining);
 
-            if (StopTimer == true)
+            if (StopTimer == true or timeRemaining > maxTime)
             {
                 break;
             }
-
             if (TimerAddTime > 0){
                 timeRemaining += TimerAddTime;
             }
+
         }
 
         Debug.Log("Time's up!");
@@ -50,6 +54,7 @@ public class Enemy : MonoBehaviour
     {  // detects if the player is inside a collistion box and if so starts a timer to start agro mode.
         if (other.CompareTag("Player"))
         {
+            StopTimer = false;
             Debug.Log("player entered the enemy sights");
             transform.LookAt(other.transform);
 
@@ -65,6 +70,14 @@ public class Enemy : MonoBehaviour
                 StartTimer(25);
             }
 
+        }
+    }
+    private void OnTriggerExit(Collider others)
+    {
+        if (others.CompareTag("Player"))
+        {
+            Debug.Log("Player exited enemy sights");
+            StopTimer = true;
         }
     }
 

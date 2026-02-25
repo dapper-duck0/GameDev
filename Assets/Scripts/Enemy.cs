@@ -6,6 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
     private ViewingCamera Camera;
+    private DamidgeBox CheckDamidgeBox;
 
     public float PlayerDet;
     public float hitRadiusDistance = 10f;
@@ -71,7 +72,7 @@ public class Enemy : MonoBehaviour
 
         }
     }
-    
+
     private void OnTriggerExit(Collider others)
     {
         if (others.CompareTag("Player"))
@@ -93,8 +94,11 @@ public class Enemy : MonoBehaviour
         PlayerDet = PlayerScript.DetectSpeed;
         if (Agro == true)
         {
-            DamidgingHappen = true;
-            Debug.Log("player is dying")
+            if (CheckDamidgeBox == true;)
+            {
+                DamidgingHappen = true;
+                Debug.Log("player is dying")
+            }
         }
     }
 }

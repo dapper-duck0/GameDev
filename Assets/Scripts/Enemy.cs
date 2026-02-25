@@ -23,20 +23,24 @@ public class Enemy : MonoBehaviour
     IEnumerator Countdown(int timeRemaining)
     {
         maxTime = timeRemaining;
+
         while (timeRemaining > 0)
         {
+            if (StopTimer)
+            {
+                yield break; // stops coroutine completely
+            }
+
             yield return new WaitForSeconds(1f);
             timeRemaining--;
-            Debug.Log(timeRemaining);
 
-            if (StopTimer == true or timeRemaining > maxTime)
+            if (TimerAddTime > 0)
             {
-                break;
-            }
-            if (TimerAddTime > 0){
                 timeRemaining += TimerAddTime;
+                TimerAddTime = 0;
             }
 
+            Debug.Log(timeRemaining);
         }
 
         Debug.Log("Time's up!");
@@ -46,8 +50,7 @@ public class Enemy : MonoBehaviour
     //to start a timer
     public void StartTimer(int timeWanted)
     {
-        timeRemaining = timeWanted;
-        StartCoroutine(Countdown());
+        StartCoroutine(Countdown(timeWanted));
     }
 
     private void OnTriggerEnter(Collider other) // needs to add a collider box around enemy that is trigger.
@@ -94,10 +97,10 @@ public class Enemy : MonoBehaviour
         PlayerDet = PlayerScript.DetectSpeed;
         if (Agro == true)
         {
-            if (CheckDamidgeBox == true;)
+            if (CheckDamidgeBox.IsInside == true)
             {
                 DamidgingHappen = true;
-                Debug.Log("player is dying")
+                Debug.Log("player is dying");
             }
         }
     }

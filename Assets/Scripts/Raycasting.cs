@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 //using UnityEngine.PhysicsModule;
-publci class Raycasting : MonoBehaviour
+public class Raycasting : MonoBehaviour
 {
     public float DetectSpeed = 10.0f;
     Ray MarkEnemy;

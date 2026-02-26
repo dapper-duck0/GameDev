@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
     private ViewingCamera Camera;
-    private DamidgeBox CheckDamidgeBox;
+    private DamidgeBoxes CheckDamidgeBox;
 
     public float PlayerDet;
     public float hitRadiusDistance = 10f;

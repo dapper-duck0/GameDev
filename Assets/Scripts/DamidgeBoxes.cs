@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public class DamidgeBox : MonoBehaviour
-
+public class DamidgeBoxes : MonoBehaviour
 {
     //this script litterly exits just to check if the player is inside a damidge zone 
     //for the enemy script
@@ -21,5 +20,4 @@ public class DamidgeBox : MonoBehaviour
         }
     }
 }
-
 

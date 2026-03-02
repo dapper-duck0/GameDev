@@ -59,7 +59,7 @@ public class Enemy : MonoBehaviour
         {
             StopTimer = false;
             Debug.Log("player entered the enemy sights");
-            transform.LookAt(other.transform);
+            transform.LookAt(other.transform);  //turns enemy towards last player position
 
             if (Camera.IsCrouched == true)
             {
@@ -102,6 +102,7 @@ public class Enemy : MonoBehaviour
                 DamidgingHappen = true;
                 Debug.Log("player is dying");
             }
+            transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);  //should move enemy towards player if entire script works right...
         }
     }
 }

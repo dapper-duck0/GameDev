@@ -13,10 +13,10 @@ public class Raycasting : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q)) 
         {
-            MarkEnemy = new ViewingCamera.Main.screenPointToRcay(transform.position, transform.forward);         
+            Ray MarkEnemy = new Ray(transform.position, transform.forward);         
             if(Physics.Raycast(MarkEnemy, out EnemyTag))
             {
-                Debug.Log(EnemyTag.collider.GameObject.name + " was hit"); 
+                Debug.Log(EnemyTag.collider.gameObject.name + " was hit"); 
                 //if(MarkEnemy)
                 //{ 	
                     

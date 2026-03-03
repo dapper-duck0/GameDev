@@ -14,7 +14,7 @@ public class Raycasting : MonoBehaviour
             Ray MarkEnemy = new Ray(transform.position, -transform.forward);
 
             // Draws the ray in the Scene view (visible for 2 seconds)
-            Debug.DrawRay(transform.position, transform.forward, Color.red, 2f);
+            Debug.DrawRay(transform.position, -transform.forward * RayDistance, Color.red, 2f);
 
             if (Physics.Raycast(MarkEnemy, out EnemyTag, RayDistance))
             {

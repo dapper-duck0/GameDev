@@ -11,7 +11,7 @@ public class Raycasting : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Ray MarkEnemy = new Ray(transform.position, transform.forward);
+            Ray MarkEnemy = new Ray(transform.position, -transform.forward);
 
             // Draws the ray in the Scene view (visible for 2 seconds)
             Debug.DrawRay(transform.position, transform.forward * RayDistance, Color.red, 2f);

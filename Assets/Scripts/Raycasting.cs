@@ -2,27 +2,27 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
-//using UnityEngine.PhysicsModule;
 public class Raycasting : MonoBehaviour
 {
-    public float DetectSpeed = 10.0f;
+    public float RayDistance = 100f;
     private RaycastHit EnemyTag;
 
     void LateUpdate()
     {
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            Debug.Log("Q pressed - firing ray"); // confirm input is working
-
             Ray MarkEnemy = new Ray(transform.position, transform.forward);
 
-            if (Physics.Raycast(MarkEnemy, out EnemyTag))
+            // Draws the ray in the Scene view (visible for 2 seconds)
+            Debug.DrawRay(transform.position, transform.forward * RayDistance, Color.red, 2f);
+
+            if (Physics.Raycast(MarkEnemy, out EnemyTag, RayDistance))
             {
                 Debug.Log(EnemyTag.collider.gameObject.name + " was hit");
             }
             else
             {
-                Debug.Log("Ray fired but nothing was hit");
+                Debug.Log("Nothing hit - check Scene view for red ray direction");
             }
         }
     }

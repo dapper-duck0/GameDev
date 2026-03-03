@@ -6,21 +6,23 @@ using System.Collections.Generic;
 public class Raycasting : MonoBehaviour
 {
     public float DetectSpeed = 10.0f;
-    Ray MarkEnemy;
-    RaycastHit EnemyTag;
+    private RaycastHit EnemyTag;
 
     void LateUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.Q)) 
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-            Ray MarkEnemy = new Ray(transform.position, transform.forward);         
-            if(Physics.Raycast(MarkEnemy, out EnemyTag))
+            Debug.Log("Q pressed - firing ray"); // confirm input is working
+
+            Ray MarkEnemy = new Ray(transform.position, transform.forward);
+
+            if (Physics.Raycast(MarkEnemy, out EnemyTag))
             {
-                Debug.Log(EnemyTag.collider.gameObject.name + " was hit"); 
-                //if(MarkEnemy)
-                //{ 	
-                    
-                //} 
+                Debug.Log(EnemyTag.collider.gameObject.name + " was hit");
+            }
+            else
+            {
+                Debug.Log("Ray fired but nothing was hit");
             }
         }
     }

@@ -5,6 +5,7 @@ public class EnemyMovement : MonoBehaviour
     Random rnd = new Random();
     void start()
     {
+        RandomPositionGen();
         public Vector3 targetPosition = new Vector3(randomX, 0f, RandomZ); 
         public float speed = 5f;
     }

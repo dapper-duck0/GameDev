@@ -75,6 +75,29 @@ public class Enemy : MonoBehaviour
 
         }
     }
+    //this should make it so that the enemy can detect player that is inside the hitbox even if they never entered it
+    private void OnTriggerStay(Collider other)
+    {  // detects if the player is inside a collistion box and if so starts a timer to start agro mode.
+        if (other.CompareTag("Player"))
+        {
+            StopTimer = false;
+            Debug.Log("player entered the enemy sights");
+            transform.LookAt(other.transform);  //turns enemy towards last player position
+
+            if (Camera.IsCrouched == true)
+            {
+                Debug.Log("Time to find longer");
+                StartTimer(5);
+            }
+
+            else
+            {
+                Debug.Log("time to find base speed");
+                StartTimer(25);
+            }
+
+        }
+    }
 
     private void OnTriggerExit(Collider others)
     {

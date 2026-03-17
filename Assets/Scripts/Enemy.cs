@@ -6,7 +6,9 @@ public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
     private ViewingCamera Camera;
-    private DamidgeBoxes CheckDamidgeBox;
+    private DamidgeBoxes DamidgeBoxes;
+
+    public GameObject playerObj;
 
     public float PlayerDet;
     public float hitRadiusDistance = 10f;
@@ -111,7 +113,7 @@ public class Enemy : MonoBehaviour
     void Start()
     {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        PlayerScript = playerObj.GetComponent<Player>();
+        //PlayerScript = playerObj.GetComponent<Player>();
         //testing to see if PlayerDet is getting grabed 
     }
 
@@ -120,7 +122,7 @@ public class Enemy : MonoBehaviour
         PlayerDet = PlayerScript.DetectSpeed;
         if (Agro == true)
         {
-            if (CheckDamidgeBox.IsInside == true)
+            if (DamidgeBoxes.IsInside == true)
             {
                 DamidgingHappen = true;
                 Debug.Log("player is dying");

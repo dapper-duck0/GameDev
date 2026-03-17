@@ -112,7 +112,7 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
-        GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+        //GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         //PlayerScript = playerObj.GetComponent<Player>();
         //testing to see if PlayerDet is getting grabed 
     }
@@ -128,6 +128,8 @@ public class Enemy : MonoBehaviour
                 Debug.Log("player is dying");
             }
             transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);  //should move enemy towards player if entire script works right...
+            Debug.Log("move enemy towords player.");
         }
     }
+
 }

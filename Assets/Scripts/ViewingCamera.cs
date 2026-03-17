@@ -16,11 +16,11 @@ public class ViewingCamera : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.LeftControl) && IsCrouched == false) //checks if crouched and changes hieght if so.
         {
-            transform.Translate(0, -(normal-offset), 0);
+            transform.Translate(0, -(normal+offset), 0);
         }
-        else if (IsCrouched == true && Input.GetKeyUp(KeyCode.LeftControl))
+        else if (Input.GetKeyUp(KeyCode.LeftControl)) //IsCrouched == true && 
         {
-            transform.Translate(0, offset, 0);
+            transform.Translate(0, (normal + offset), 0);
         }
         if (EnemyScript.DamidgingHappen == true){
             ShakeScreen(3);

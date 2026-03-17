@@ -109,7 +109,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider others)
+    private void OnTriggerExit(Collider others) // reseach how to remove these
     {
         if (others.CompareTag("Player"))
         {
@@ -124,13 +124,13 @@ public class Enemy : MonoBehaviour
         //GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         //PlayerScript = playerObj.GetComponent<Player>();
         //testing to see if PlayerDet is getting grabed 
-        transform.LookAt(playerObj.transform);
+        //transform.LookAt(playerObj.transform);
         
     }
 
     void LateUpdate()
     {
-        transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
+        //transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
         Debug.Log("The script is being accessed" + playerObj + " fds");
         //PlayerDet = PlayerScript.DetectSpeed;
         if (Agro == true)

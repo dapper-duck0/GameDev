@@ -119,7 +119,7 @@ public class Enemy : MonoBehaviour
 
     void LateUpdate()
     {
-        PlayerDet = PlayerScript.DetectSpeed;
+        //PlayerDet = PlayerScript.DetectSpeed;
         if (Agro == true)
         {
             if (DamidgeBoxes.IsInside == true)

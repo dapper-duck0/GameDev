@@ -20,17 +20,20 @@ public class Enemy : MonoBehaviour
     public bool DamidgingHappen = false;
     public bool Agro = false;
     public bool StopTimer = false;
+    public bool timerRunning = false;
 
     //the timer
     IEnumerator Countdown(int timeRemaining)
     {
+        Debug.Log("timer started");
         maxTime = timeRemaining;
 
         while (timeRemaining > 0)
         {
             if (StopTimer)
             {
-                yield break; // stops coroutine completely
+                timerRunning = false;
+                yield break;
             }
 
             yield return new WaitForSeconds(1f);
@@ -52,7 +55,12 @@ public class Enemy : MonoBehaviour
     //to start a timer
     public void StartTimer(int timeWanted)
     {
-        StartCoroutine(Countdown(timeWanted));
+        if (!timerRunning)
+        {
+            timerRunning = true;
+            StartCoroutine(Countdown(timeWanted));
+        }
+
     }
 
     private void OnTriggerEnter(Collider other) // needs to add a collider box around enemy that is trigger.
@@ -112,13 +120,18 @@ public class Enemy : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("The script is being accessed" + playerObj);
         //GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         //PlayerScript = playerObj.GetComponent<Player>();
         //testing to see if PlayerDet is getting grabed 
+        transform.LookAt(playerObj.transform);
+        
     }
 
     void LateUpdate()
     {
+        transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
+        Debug.Log("The script is being accessed" + playerObj + " fds");
         //PlayerDet = PlayerScript.DetectSpeed;
         if (Agro == true)
         {

@@ -83,7 +83,6 @@ public class Enemy : MonoBehaviour
     void LateUpdate()
     {
         //transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
-        Debug.Log("The script is being accessed" + playerObj + " fds");
         //PlayerDet = PlayerScript.DetectSpeed;
         RayCastingSphere();
         if (Agro == true)

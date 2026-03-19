@@ -102,28 +102,30 @@ public class Enemy : MonoBehaviour
     void RayCastingSphere()
     {
         RaycastHit hit;
-        bool hasHit = Physics.SphereCast(transform.position, radius, transform.forward, out hit, maxDistance, layerMask);
-        if (hasHit)
+        if (Physics.SphereCast(transform.position, radius, transform.forward, out hit, maxDistance, layerMask))
         {
             Debug.Log("Hit: " + hit.collider.name);
             Debug.DrawLine(transform.position, hit.point, Color.blue);
-            if (hasHit.CompareTag("Player"))
+
+            if (hit.collider.CompareTag("Player"))
             {
-                transform.LookAt(hasHit.transform);
+                transform.LookAt(hit.collider.transform);
+
                 if (Camera.IsCrouched == true)
                 {
+                    Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
                     StartTimer(25);
                     Debug.Log("Player is found in the crouched position");
                 }
-                else if (Camera.IsCrouched == false)
+                else
                 {
+                    Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.purple);
                     StartTimer(15);
                     Debug.Log("Player is found in the UnCrouched position");
                 }
             }
         }
     }
-
 //backup code
 /*
     if (other.CompareTag("Player"))

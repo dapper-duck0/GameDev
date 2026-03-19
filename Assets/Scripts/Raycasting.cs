@@ -19,10 +19,10 @@ public class Raycasting : MonoBehaviour
             if (Physics.Raycast(MarkEnemy, out EnemyTag, RayDistance))
             {
                 Debug.Log(EnemyTag.collider.gameObject.name + " was hit");
-                //if (EnemyTag == gameObject.tag("EnemyRay"))
-                //{
-                 //   Debug.Log("mark the enemy");
-                //}
+                if (EnemyTag == gameObject.tag("EnemyRay"))
+                {
+                    Debug.Log("mark the enemy");
+                }
             }
             else
             {

@@ -46,9 +46,9 @@ public class Player : MonoBehaviour
         float mouseX = lookInput.x * MouseSen * Time.deltaTime;
 
         // --- Movement ---
-        Vector3 moveInput = moveAction.ReadValue<Vector2>();
+        Vector3 moveInput = moveAction.ReadValue<Vector3>();
         float translation = -moveInput.y * Speed * Time.deltaTime;
-        float strafe = moveInput.x * Speed * Time.deltaTime;
+        float strafe = -moveInput.x * Speed * Time.deltaTime;
 
         // Move along z-axis, rotate around y-axis
         transform.Translate(strafe, 0, translation);

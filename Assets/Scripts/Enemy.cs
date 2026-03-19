@@ -12,6 +12,10 @@ public class Enemy : MonoBehaviour
 
     public float PlayerDet;
     public float hitRadiusDistance = 10f;
+    public float radius = 1.0f;
+    public float maxDistance = 10.0f;
+
+    public LayerMask layerMask;
 
     public int DamidgePlayer = 5;
     public int TimerAddTime;
@@ -81,6 +85,7 @@ public class Enemy : MonoBehaviour
         //transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
         Debug.Log("The script is being accessed" + playerObj + " fds");
         //PlayerDet = PlayerScript.DetectSpeed;
+        RayCastingSphere();
         if (Agro == true)
         {
             if (DamidgeBoxes.IsInside == true)
@@ -93,6 +98,31 @@ public class Enemy : MonoBehaviour
         }
     }
 
+    // creates a raycast sphere to detects the player and target them.
+    void RayCastingSphere()
+    {
+        RaycastHit hit;
+        bool hasHit = Physics.SphereCast(transform.position, radius, transform.forward, out hit, maxDistance, layerMask);
+        if (hasHit)
+        {
+            Debug.Log("Hit: " + hit.collider.name);
+            Debug.DrawLine(transform.position, hit.point, Color.blue);
+            if (hasHit.CompareTag("Player"))
+            {
+                transform.LookAt(hasHit.transform);
+                if (Camera.IsCrouched == true)
+                {
+                    StartTimer(25);
+                    Debug.Log("Player is found in the crouched position");
+                }
+                else if (Camera.IsCrouched == false)
+                {
+                    StartTimer(15);
+                    Debug.Log("Player is found in the UnCrouched position");
+                }
+            }
+        }
+    }
 
 //backup code
 /*

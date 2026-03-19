@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         // Grab actions by name (must match your Input Action Asset)
         moveAction      = playerInput.actions["Move"];
         lookAction      = playerInput.actions["Look"];
-        stealthAction   = playerInput.actions["Stealth"];
+        stealthAction   = playerInput.actions["Crouch"];
         unlockMouseAction = playerInput.actions["UnlockMouse"];
     }
 

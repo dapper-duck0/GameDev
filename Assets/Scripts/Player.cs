@@ -32,6 +32,12 @@ public class Player : MonoBehaviour
         lookAction      = playerInput.actions["Look"];
         stealthAction   = playerInput.actions["Crouch"];
         unlockMouseAction = playerInput.actions["UnlockMouse"];
+
+        // Debug to ensure actions are found
+        if (moveAction == null) Debug.LogError("Move action not found!");
+        if (lookAction == null) Debug.LogError("Look action not found!");
+        if (stealthAction == null) Debug.LogError("Stealth action not found!");
+        if (unlockMouseAction == null) Debug.LogError("UnlockMouse action not found!");
     }
 
     void Start()

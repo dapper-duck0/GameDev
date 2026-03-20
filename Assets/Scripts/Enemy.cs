@@ -85,16 +85,6 @@ public class Enemy : MonoBehaviour
         //transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
         //PlayerDet = PlayerScript.DetectSpeed;
         RayCastingSphere();
-        if (Agro == true)
-        {
-            if (DamidgeBoxes.IsInside == true)
-            {
-                DamidgingHappen = true;
-                Debug.Log("player is dying");
-            }
-            transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);  //should move enemy towards player if entire script works right...
-            Debug.Log("move enemy towords player.");
-        }
     }
 
     // creates a raycast sphere to detects the player and target them.
@@ -121,6 +111,17 @@ public class Enemy : MonoBehaviour
                     Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.purple);
                     StartTimer(15);
                     Debug.Log("Player is found in the UnCrouched position");
+                }
+                
+                //player damidge system | will make better
+                if (Agro == true)
+                {
+                    
+                    DamidgingHappen = true;
+                    Debug.Log("player is dying");
+                
+                    transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);  //should move enemy towards player if entire script works right...
+                    Debug.Log("move enemy towords player.");
                 }
             }
         }

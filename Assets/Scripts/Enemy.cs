@@ -80,11 +80,19 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void LateUpdate()
+    void Update()
     {
         //transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
         //PlayerDet = PlayerScript.DetectSpeed;
         RayCastingSphere();
+
+        if (Agro == true)
+        {
+            DamidgingHappen = true;
+            Debug.Log("player is dying");                
+            transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);  //should move enemy towards player if entire script works right...
+            Debug.Log("move enemy towords player.");
+        }
     }
 
     // creates a raycast sphere to detects the player and target them.
@@ -114,15 +122,6 @@ public class Enemy : MonoBehaviour
                 }
                 
                 //player damidge system | will make better
-                if (Agro == true)
-                {
-                    
-                    DamidgingHappen = true;
-                    Debug.Log("player is dying");
-                
-                    transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);  //should move enemy towards player if entire script works right...
-                    Debug.Log("move enemy towords player.");
-                }
             }
         }
     }

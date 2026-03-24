@@ -23,11 +23,15 @@ public class Player : MonoBehaviour
     private InputAction stealthAction;
     private InputAction unlockMouseAction;
 
-    void Awake()
+
+    void Start()
     {
+        Cursor.lockState = CursorLockMode.Locked;
+
+        // Get the PlayerInput component and actions
         playerInput = GetComponent<PlayerInput>();
 
-        // Grab actions by name (must match your Input Action Asset)
+        // Grab actions by name from the Input System
         moveAction      = playerInput.actions["Move"];
         lookAction      = playerInput.actions["Look"];
         stealthAction   = playerInput.actions["Crouch"];
@@ -40,11 +44,6 @@ public class Player : MonoBehaviour
         if (unlockMouseAction == null) Debug.LogError("UnlockMouse action not found!");
     }
 
-    void Start()
-    {
-        Cursor.lockState = CursorLockMode.Locked;
-    }
-
     void Update()
     {
         // --- Mouse Look ---
@@ -52,7 +51,7 @@ public class Player : MonoBehaviour
         float mouseX = lookInput.x * MouseSen * Time.deltaTime;
 
         // --- Movement ---
-        Vector3 moveInput = moveAction.ReadValue<Vector3>();
+        vector2 moveInput = moveAction.ReadValue<vector2>();
         float translation = -moveInput.y * Speed * Time.deltaTime;
         float strafe = -moveInput.x * Speed * Time.deltaTime;
 

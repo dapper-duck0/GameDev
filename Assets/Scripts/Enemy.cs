@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
             playerObj = GameObject.FindGameObjectWithTag("Player");
 
         // Get the ViewingCamera script from the scene
-        Camera = FindObjectOfType<ViewingCamera>();
+        Camera = Object.FindAnyObjectByType<ViewingCamera>();
 
         // Get PlayerScript from the player object
         if (playerObj != null)

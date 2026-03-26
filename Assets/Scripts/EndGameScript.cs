@@ -1,6 +1,6 @@
-uning UnityEngine;
+using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
-
 
 public class EndGameScript : MonoBehaviour
 {
@@ -9,26 +9,24 @@ public class EndGameScript : MonoBehaviour
 
     void Start() 
     {
-        Interact = playerInput.actions["Interact"];
-    }
-    void Update()
-    {
-        LoadNextSceneByName()
+        playerInput = GetComponent<PlayerInput>();
+        if (playerInput != null)
+        {
+            Interact = playerInput.actions["Interact"];
+        }
     }
 
-    public void LoadNextSceneByName()
+    void Update()
     {
-        private void OnTriggerEnter(Collider other)
+        // Update logic if needed
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        // Check if the entering object has the "Player" tag
+        if (other.CompareTag("Player") && Interact != null && Interact.IsPressed())
         {
-            // Check if the entering object has the "Player" tag
-            if (other.CompareTag("Player") && Interact.IsPressed())
-            {
-                SceneManager.LoadScene("EndScene");
-                //this should be a scene we need to create to play an end screan animation
-                
-            }
+            SceneManager.LoadScene("EndScene");
         }
-        
-        
     }
 }

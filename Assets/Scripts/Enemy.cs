@@ -6,8 +6,7 @@ public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
     private ViewingCamera Camera;
-    private DamidgeBoxes DamidgeBoxes;
-
+    private DamageBoxes DamageBoxes;
     public GameObject playerObj;
 
     public float PlayerDet;
@@ -17,21 +16,21 @@ public class Enemy : MonoBehaviour
 
     public LayerMask layerMask;
 
-    public int DamidgePlayer = 5;
+    public int DamagePlayer = 5;
     public int TimerAddTime;
     public int maxTime;
-
-    public bool DamidgingHappen = false;
+    
+    public bool DamageHappen = false;
     public bool Agro = false;
     public bool StopTimer = false;
     public bool timerRunning = false;
+    private bool playerDetected = false;
 
-    //the timer
+    // The timer
     IEnumerator Countdown(int timeRemaining)
     {
-        Debug.Log("timer started");
+        Debug.Log("Timer started");
         maxTime = timeRemaining;
-
         while (timeRemaining > 0)
         {
             if (StopTimer)
@@ -39,24 +38,20 @@ public class Enemy : MonoBehaviour
                 timerRunning = false;
                 yield break;
             }
-
             yield return new WaitForSeconds(1f);
             timeRemaining--;
-
             if (TimerAddTime > 0)
             {
                 timeRemaining += TimerAddTime;
                 TimerAddTime = 0;
             }
-
             Debug.Log(timeRemaining);
         }
-
         Debug.Log("Time's up!");
         Agro = true;
     }
 
-    //to start a timer
+    // To start a timer
     public void StartTimer(int timeWanted)
     {
         if (!timerRunning)
@@ -64,38 +59,48 @@ public class Enemy : MonoBehaviour
             timerRunning = true;
             StartCoroutine(Countdown(timeWanted));
         }
-
     }
-
-    // put raycase sphere here
-
 
     void Start()
     {
-        Debug.Log("The script is being accessed" + playerObj);
-        //GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-        //PlayerScript = playerObj.GetComponent<Player>();
-        //testing to see if PlayerDet is getting grabed 
-        //transform.LookAt(playerObj.transform);
-        
+        // Find player if not assigned in Inspector
+        if (playerObj == null)
+            playerObj = GameObject.FindGameObjectWithTag("Player");
+
+        // Get the ViewingCamera script from the scene
+        Camera = FindObjectOfType<ViewingCamera>();
+
+        // Get PlayerScript from the player object
+        if (playerObj != null)
+            PlayerScript = playerObj.GetComponent<Player>();
+
+        Debug.Log("The script is being accessed. Player: " + playerObj);
     }
 
     void Update()
     {
-        //transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);
-        //PlayerDet = PlayerScript.DetectSpeed;
         RayCastingSphere();
 
         if (Agro == true)
         {
-            DamidgingHappen = true;
-            Debug.Log("player is dying");                
-            transform.Translate(Vector3.forward * 4.5f * Time.deltaTime);  //should move enemy towards player if entire script works right...
-            Debug.Log("move enemy towords player.");
+            DamageHappen = true;
+            Debug.Log("Player is dying");
+
+            // Move enemy toward the player
+            if (playerObj != null)
+            {
+                transform.position = Vector3.MoveTowards(
+                    transform.position,
+                    playerObj.transform.position,
+                    4.5f * Time.deltaTime
+                );
+            }
+
+            Debug.Log("Moving enemy towards player.");
         }
     }
 
-    // creates a raycast sphere to detects the player and target them.
+    // Creates a SphereCast to detect the player
     void RayCastingSphere()
     {
         RaycastHit hit;
@@ -108,21 +113,30 @@ public class Enemy : MonoBehaviour
             {
                 transform.LookAt(hit.collider.transform);
 
-                if (Camera.IsCrouched == true)
+                // Only start the timer once
+                if (!playerDetected && !timerRunning && !Agro)
                 {
-                    Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
-                    StartTimer(25);
-                    Debug.Log("Player is found in the crouched position");
+                    playerDetected = true;
+
+                    if (Camera != null && Camera.IsCrouched)
+                    {
+                        Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.red);
+                        StartTimer(25);
+                        Debug.Log("Player found crouched.");
+                    }
+                    else
+                    {
+                        Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.purple);
+                        StartTimer(15);
+                        Debug.Log("Player found uncrouched.");
+                    }
                 }
-                else
-                {
-                    Debug.DrawRay(transform.position, transform.forward * maxDistance, Color.purple);
-                    StartTimer(15);
-                    Debug.Log("Player is found in the UnCrouched position");
-                }
-                
-                //player damidge system | will make better
             }
+        }
+        else
+        {
+            // Player left detection range, reset detection
+            playerDetected = false;
         }
     }
 }

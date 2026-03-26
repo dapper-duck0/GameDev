@@ -7,8 +7,13 @@ public class EndGameScript : MonoBehaviour
     private PlayerInput playerInput;
     private InputAction Interact;
 
-    void Start() {
+    void Start() 
+    {
         Interact = playerInput.actions["Interact"];
+    }
+    void Update()
+    {
+        LoadNextSceneByName()
     }
 
     public void LoadNextSceneByName()

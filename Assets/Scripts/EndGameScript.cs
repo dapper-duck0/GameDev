@@ -14,6 +14,10 @@ public class EndGameScript : MonoBehaviour
         {
             Interact = playerInput.actions["Interact"];
         }
+        else
+        {
+            Debug.Log("ERROR! ERROR! CANT GRAB Interact ERROR!")
+        }
     }
 
     void Update()

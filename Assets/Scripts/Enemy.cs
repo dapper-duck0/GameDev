@@ -6,7 +6,6 @@ public class Enemy : MonoBehaviour
 {
     private Player PlayerScript;
     private ViewingCamera Camera;
-    private DamageBoxes DamageBoxes;
     public GameObject playerObj;
 
     public float PlayerDet;

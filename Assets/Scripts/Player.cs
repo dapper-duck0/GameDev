@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         float mouseX = lookInput.x * MouseSen * Time.deltaTime;
 
         // --- Movement ---
-        vector2 moveInput = moveAction.ReadValue<vector2>();
+        Vector2 moveInput = moveAction.ReadValue<Vector2>();
         float translation = -moveInput.y * Speed * Time.deltaTime;
         float strafe = -moveInput.x * Speed * Time.deltaTime;
 

@@ -24,7 +24,7 @@ public class ViewingCamera : MonoBehaviour
             transform.Translate(0, (normal + offset), 0);
             IsCrouched = false;
         }
-        if (EnemyScript.DamidgingHappen == true){
+        if (EnemyScript.DamageHappen == true){
             ShakeScreen(3);
         }
 

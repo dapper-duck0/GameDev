@@ -16,7 +16,7 @@ public class EndGameScript : MonoBehaviour
         }
         else
         {
-            Debug.Log("ERROR! ERROR! CANT GRAB Interact ERROR!")
+            Debug.LogError("Interact action not found");
         }
     }
 

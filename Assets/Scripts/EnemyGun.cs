@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class EnemyGun : MonoBehaviour
 {
     void start()
     {

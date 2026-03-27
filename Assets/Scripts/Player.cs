@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private InputAction lookAction;
     private InputAction stealthAction;
     private InputAction unlockMouseAction;
+    private InputAction LockMouseAction;
 
 
     void Start()
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
         lookAction      = playerInput.actions["Look"];
         stealthAction   = playerInput.actions["Crouch"];
         unlockMouseAction = playerInput.actions["UnlockMouse"];
+        LockMouseAction  = playerInput.actions["LockMouse"];
 
         // Debug to ensure actions are found
         if (moveAction == null) Debug.LogError("Move action not found!");
@@ -63,6 +65,12 @@ public class Player : MonoBehaviour
         if (unlockMouseAction.WasPressedThisFrame() && Cursor.lockState == CursorLockMode.Locked)
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+
+        if (LockMouseAction.IsPressed() && Cursor.lockState == CursorLockMode.None)
+        {
+            Debug.Log("game has been clicked");
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         // --- Death check ---
